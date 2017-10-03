@@ -2,12 +2,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class CheckBox1 implements ItemSelectable {
+public class JList1 implements ListSelectionListener {
 
-  JCheckBox check;
+  JList list;
   
   public static void main (String [] args) {
-    CheckBox1 gui=new CheckBox1();
+    JList1 gui=new JList1();
     gui.go();
   }//close main()
 
