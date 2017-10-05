@@ -4,7 +4,7 @@ import javax.sound.midi.*;
 import java.util.*;
 import java.awt.event.*;
 
-public clacc BeatBox {
+public class BeatBox {
     JPanel mainPanel;
     ArrayList<JCheckBox> checkboxList;  //store the checkboxes in an ArrayList
     Sequencer sequenser;
@@ -19,7 +19,7 @@ public clacc BeatBox {
     int[] instruments={35,42,46,38,49,39,50,60,70,72,64,56,58,47,67,63};
 
     public static void main (String[] args) {
-        new BeatBox2().buildGUI();
+        new BeatBox().buildGUI();
     }
     
     public void buildGUI() {
@@ -68,7 +68,7 @@ public clacc BeatBox {
         for (int i=0;i<256;i++) {
             JCheckBox c=new JCheckBox();
             c.setSelected(false);
-            checboxList.add(c);
+            checkboxList.add(c);
             mainPanel.add(c);
         }//end loop
         
@@ -77,8 +77,7 @@ public clacc BeatBox {
         theFrame.setBounds(50,50,300,300);
         theFrame.pack();
         theFrame.setVisible(true);
-      } catch (Exception e) {e.printStackTrace();}
-    }//close method
+      }//close method
     
     public void setUpMidi() {
       try {
@@ -121,25 +120,25 @@ public clacc BeatBox {
     }//close buildTrackAndStart method
 
 public class MyStartListener implements ActionListener {
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent a) {
         buildTrackAndStart();
     }
 }//close inner class
 public class MyStopListener implements ActionListener {
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent a) {
         sequencer.stop();
     }
 }//close inner class
 
 public class MyUpTempoListener implements ActionListener {
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent a) {
         float tempoFactor=sequencer.getTempoFactor();
             sequencer.setTempoFactor((float) (tempoFactor*1.03));
     }
 }//close inner class
 
 public class MyDownTempoListener implements ActionListener {
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent a) {
         float tempoFactor=sequencer.getTempoFactor();
         sequencer.setTempoFactor((float) (tempoFactor*.97));
     }
